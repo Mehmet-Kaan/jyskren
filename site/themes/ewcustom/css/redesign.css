@@ -380,7 +380,6 @@ html:has(.mobile-nav[open]) { overflow: hidden; }
 .mobile-nav__group > a + .mobile-nav__toggle {
   flex: 0 0 48px;
   justify-content: center;
-  background: var(--surface);
 }
 
 .mobile-nav__toggle::after {
@@ -397,17 +396,30 @@ html:has(.mobile-nav[open]) { overflow: hidden; }
   transform: translateY(2px) rotate(225deg);
 }
 
-.mobile-nav__toggle[aria-expanded="true"],
-.mobile-nav__submenu { background: var(--surface); }
+.mobile-nav__toggle[aria-expanded="true"] { color: var(--accent); }
 
 .mobile-nav__submenu {
-  margin: 0 0 10px;
-  padding: 6px 8px 6px 16px;
+  margin: 0 0 12px 12px;
+  padding: 0 0 0 12px;
+  border-inline-start: 2px solid var(--accent);
 }
 
 .mobile-nav .mobile-nav__submenu a {
+  justify-content: space-between;
+  gap: 12px;
   min-height: 46px;
   font-size: 1.0625rem;
+}
+
+.mobile-nav .mobile-nav__submenu a::after {
+  content: '';
+  flex: none;
+  width: 7px;
+  height: 7px;
+  margin-inline-end: 4px;
+  border: solid var(--accent);
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(-45deg);
 }
 
 .mobile-nav a[aria-current="page"] {
