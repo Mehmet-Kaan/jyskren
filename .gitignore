@@ -1,0 +1,8 @@
+.DS_Store
+node_modules/
+dist/
+.taste-skill/
+rea-evidence/
+.env
+.env.*
+!.env.example

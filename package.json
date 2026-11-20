@@ -1,0 +1,11 @@
+{
+  "name": "hacisren-local",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Locally reconstructed copy and de-bundled source code of https://hacisren.dk/ extracted via REA.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "build:pages": "node scripts/build-pages.mjs"
+  }
+}
