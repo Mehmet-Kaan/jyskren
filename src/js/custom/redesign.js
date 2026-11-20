@@ -147,11 +147,24 @@ function setupMobileNavigation() {
     dialog.showModal();
     trigger.setAttribute('aria-expanded', 'true');
   }, true);
-  close.addEventListener('click', () => dialog.close());
+  async function closeDrawer() {
+    if (!dialog.open || dialog.classList.contains('is-closing')) return;
+    dialog.classList.add('is-closing');
+    const exit = dialog.getAnimations().find(animation => animation.animationName === 'mobile-nav-exit');
+    if (exit) await exit.finished.catch(() => {});
+    if (dialog.open && dialog.classList.contains('is-closing')) dialog.close();
+  }
+
+  close.addEventListener('click', closeDrawer);
+  dialog.addEventListener('cancel', event => {
+    event.preventDefault();
+    closeDrawer();
+  });
   dialog.addEventListener('click', event => {
-    if (event.target === dialog) dialog.close();
+    if (event.target === dialog) closeDrawer();
   });
   dialog.addEventListener('close', () => {
+    dialog.classList.remove('is-closing');
     trigger.setAttribute('aria-expanded', 'false');
     if (mobile.matches) trigger.focus();
   });
