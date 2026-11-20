@@ -373,29 +373,31 @@ html:has(.mobile-nav[open]) { overflow: hidden; }
 .mobile-nav__group > a { flex: 1; min-width: 0; }
 
 .mobile-nav__toggle {
-  justify-content: space-between;
-  gap: 12px;
+  position: relative;
+  padding-inline-end: 48px;
   width: 100%;
   background: transparent;
 }
 
 .mobile-nav__group > a + .mobile-nav__toggle {
   flex: 0 0 48px;
-  justify-content: center;
+  padding: 0;
 }
 
 .mobile-nav__toggle::after {
   content: '';
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-end: 20px;
   width: 8px;
   height: 8px;
-  margin-inline: 4px;
   border: solid currentColor;
   border-width: 0 2px 2px 0;
-  transform: translateY(-2px) rotate(45deg);
+  transform: translateY(-75%) rotate(45deg);
 }
 
 .mobile-nav__toggle[aria-expanded="true"]::after {
-  transform: translateY(2px) rotate(225deg);
+  transform: translateY(-25%) rotate(225deg);
 }
 
 .mobile-nav__toggle[aria-expanded="true"] { color: var(--accent); }
