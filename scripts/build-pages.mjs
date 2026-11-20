@@ -28,30 +28,42 @@ const routes = new Set();
 for (const name of roots) {
   try { await readFile(path.join('site', name, 'index.html')); routes.add(name); } catch {}
 }
-function rebase(text) {
-  // Handles HTML attributes, CSS url(), and literal paths in inline JavaScript.
-  text = text.replace(/(["'(=\s])\/(?!\/)([\w-]+)?(?=[\/"'?#\s)]|$)/g, (match, before, first) => {
-    if (first && !roots.has(first)) return match;
-    return before + base + (first ?? '');
-  });
-  // Drupal settings use JSON-escaped slashes.
-  text = text.replace(/"baseUrl":"\\\/"/g, () => '"baseUrl":' + JSON.stringify(base));
-  // Directory links must include a final slash for GitHub Pages.
-  text = text.replace(/(href=["'])([^"']+)(["'])/g, (match, before, url, quote) => {
-    if (!url.startsWith(base)) return match;
-    const relative = url.slice(base.length);
-    return routes.has(relative) ? before + url + '/' + quote : match;
-  });
-  return text;
+function rebaseUrl(url, directoryLink = false) {
+  if (!url.startsWith('/') || url.startsWith('//')) return url;
+  const relative = url.slice(1);
+  const [pathname] = relative.split(/[?#]/, 1);
+  if (pathname && !roots.has(pathname.split('/')[0])) return url;
+  if (directoryLink && routes.has(pathname)) {
+    return base + pathname + '/' + relative.slice(pathname.length);
+  }
+  return base + relative;
+}
+
+function rebaseCss(text) {
+  return text.replace(/(url\(\s*)(["']?)(\/[^\s"')]+)\2/g, (_, start, quote, url) =>
+    start + quote + rebaseUrl(url) + quote);
+}
+
+function rebaseHtml(text) {
+  text = text.replace(/(\s)(href|src|action|srcset)=(["'])([^"']*)\3/g,
+    (_, space, attribute, quote, value) => {
+      const url = attribute === 'srcset'
+        ? value.replace(/(^|,\s*)(\/[^\s,]+)/g, (_, separator, candidate) =>
+          separator + rebaseUrl(candidate))
+        : rebaseUrl(value, attribute === 'href');
+      return space + attribute + '=' + quote + url + quote;
+    });
+  // Only rewrite Drupal's known settings field. Script source is copied verbatim.
+  return text.replace(/"baseUrl":"\\\/"/g, () => '"baseUrl":' + JSON.stringify(base));
 }
 let count = 0;
 async function visit(dir) {
   for (const entry of await readdir(dir, { withFileTypes: true })) {
     const file = path.join(dir, entry.name);
     if (entry.isDirectory()) await visit(file);
-    else if (/\.(html|css|js|json)$/.test(entry.name)) {
+    else if (/\.(html|css)$/.test(entry.name)) {
       const original = await readFile(file, 'utf8');
-      await writeFile(file, rebase(original));
+      await writeFile(file, entry.name.endsWith('.html') ? rebaseHtml(original) : rebaseCss(original));
       count++;
     }
   }
