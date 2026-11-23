@@ -174,3 +174,16 @@ function setupMobileNavigation() {
 }
 
 document.addEventListener('DOMContentLoaded', setupMobileNavigation);
+
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('.Menu2rev2');
+  const logo = header?.querySelector('.primary__logo');
+  const source = header?.querySelector('.nav-phone-item a[href^="tel:"]');
+  if (!logo || !source) return;
+
+  const phone = source.cloneNode(true);
+  phone.className = 'primary__brand-phone';
+  logo.before(phone);
+  logo.parentElement.classList.add('primary__brand');
+  header.classList.add('has-brand-phone');
+});

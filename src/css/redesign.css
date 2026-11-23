@@ -495,3 +495,38 @@ html:has(.mobile-nav[open]) { overflow: hidden; }
 @keyframes mobile-nav-fade-out {
   to { opacity: 0; }
 }
+
+#Menu2rev2-624563e43ec58.has-brand-phone .nav-phone-item {
+  display: none !important;
+}
+
+#Menu2rev2-624563e43ec58 .primary__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#Menu2rev2-624563e43ec58 a.primary__brand-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding-inline: 6px;
+  color: var(--ink) !important;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+#Menu2rev2-624563e43ec58 .primary__brand-phone:hover span {
+  text-decoration: underline;
+}
+
+#Menu2rev2-624563e43ec58.has-brand-phone .header .primary,
+#Menu2rev2-624563e43ec58.has-brand-phone .header .primary.js-sticky--stuck {
+  height: 96px !important;
+  min-height: 96px !important;
+}
+
+html:has(.has-brand-phone) { scroll-padding-top: 100px; }
