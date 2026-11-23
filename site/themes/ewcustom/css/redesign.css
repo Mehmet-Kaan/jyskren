@@ -512,8 +512,16 @@ html:has(.mobile-nav[open]) { overflow: hidden; }
   to { opacity: 0; }
 }
 
-#Menu2rev2-624563e43ec58.has-brand-phone .nav-phone-item {
-  display: none !important;
+@media (max-width: 1199.98px) {
+  #Menu2rev2-624563e43ec58.has-brand-phone .nav-phone-item {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  #Menu2rev2-624563e43ec58 a.primary__brand-phone {
+    display: none !important;
+  }
 }
 
 #Menu2rev2-624563e43ec58 .primary__brand {
