@@ -28,7 +28,12 @@ body [data-aos]{opacity:1!important;transform:none!important}
 #Menu2rev2-624563e43ec58 .menu .menu__item--1.menu__item-f124156b-0f1b-4230-87c7-1d2b5c8a08dc>.menu__link{background:var(--accent)!important;color:#fff!important;padding:12px 24px!important}
 #Menu2rev2-624563e43ec58 .menu__dropdown--2,#Menu2rev2-624563e43ec58 .menu__list--2{background:#fff!important;border:0!important;border-radius:0!important}
 #Menu2rev2-624563e43ec58 .menu .menu__item--2>.menu__link{font-family:'Hanken Grotesk',sans-serif!important;color:var(--ink)!important;font-weight:400!important;border-radius:0!important;font-size:var(--text-ui)!important}
-#Menu2rev2-624563e43ec58 .menu .menu__item--2>.menu__link:hover{background:var(--surface)!important}
+#Menu2rev2-624563e43ec58 .menu .menu__item--2 > .menu__link:hover,
+#Menu2rev2-624563e43ec58 .menu .menu__item--2 > .menu__link:focus-visible,
+#Menu2rev2-624563e43ec58 .menu .menu__item--2.menu__item--active > .menu__link {
+  color: var(--ink) !important;
+  background: var(--surface) !important;
+}
 /* Split first screen: calm reading surface alongside unfiltered photography. */
 #Slider4rev3-6045d414b9ac9{background:var(--surface)!important}
 #Slider4rev3-6045d414b9ac9 .carousel-inner{height:650px!important;min-height:650px}
