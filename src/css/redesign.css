@@ -138,6 +138,9 @@ body .Slider7rev4 h2{color:var(--ink)!important}
 #Footer3-606da2902b0f0 p,#Footer3-606da2902b0f0 a{color:#e3eae5!important;font-size:var(--text-ui)!important}
 #Copyright1-606da3009e84a .copyright{background:#172324!important;color:#e3eae5!important;border:0!important}
 #Copyright1-606da3009e84a *{font-size:.875rem!important}
+@media (max-width:1199.98px){
+  #Copyright1-606da3009e84a .copyright__col:first-child{padding-right:56px}
+}
 .copyright__credit{white-space:nowrap}
 .copyright__credit a{color:inherit!important;text-decoration:underline;text-underline-offset:.18em}
 #ew-cta-2 .cta-flex .cta-2-primary,#ew-cta-2 .cta-flex .cta-2-secondary{background:var(--accent)!important;border-radius:0!important;box-shadow:none!important;border:0!important}
