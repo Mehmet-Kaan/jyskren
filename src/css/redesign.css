@@ -664,3 +664,26 @@ body:where(.page-node-35, .page-node-36, .page-node-38, .page-node-43)
   color: var(--accent);
   font-weight: 600;
 }
+
+/* Keep cookie settings in the footer once the banner has been answered. */
+body:is(.eu-cookie-compliance-status-0, .eu-cookie-compliance-status-1, .eu-cookie-compliance-status-2)
+  #sliding-popup .eu-cookie-withdraw-tab {
+  display: none !important;
+}
+
+.footer-cookie-settings {
+  display: none;
+  align-self: start;
+  min-height: 44px;
+  padding: 0;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+body:is(.eu-cookie-compliance-status-0, .eu-cookie-compliance-status-1, .eu-cookie-compliance-status-2)
+  .footer-cookie-settings {
+  display: inline-block;
+}

@@ -182,3 +182,17 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('#ew-cta-2 .cta-flex a[href^="tel:"]')
     ?.setAttribute('aria-label', `Ring til JYSKREN på ${source.textContent.trim()}`);
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const footer = document.querySelector('.copyright__col');
+  if (!footer || !window.Drupal?.eu_cookie_compliance) return;
+
+  const settings = document.createElement('button');
+  settings.type = 'button';
+  settings.className = 'footer-cookie-settings';
+  settings.textContent = 'Cookies';
+  settings.addEventListener('click', () => {
+    document.querySelector('#sliding-popup .eu-cookie-withdraw-tab')?.click();
+  });
+  footer.append(settings);
+});
