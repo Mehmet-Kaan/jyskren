@@ -604,16 +604,18 @@ html:has(.mobile-nav[open]) { overflow: hidden; }
   width: 100%;
 }
 
-:where(.page-node-32, .page-node-33, .page-node-35, .page-node-36,
-       .page-node-37, .page-node-38, .page-node-39, .page-node-41,
-       .page-node-42, .page-node-43, .page-node-54) #ew-title-1 .row {
+/* The title block inherits the same starting edge as the article below it. */
+body:not(.front) main #ew-title-1 .row {
   margin-inline: 0;
 }
 
-:where(.page-node-32, .page-node-33, .page-node-35, .page-node-36,
-       .page-node-37, .page-node-38, .page-node-39, .page-node-41,
-       .page-node-42, .page-node-43, .page-node-54) #ew-title-1 .col-12 {
+body:not(.front) main #ew-title-1 .col-12 {
   padding-inline: 0;
+}
+
+#ew-contact-info-1 .contact-address {
+  display: inline-block;
+  vertical-align: top;
 }
 
 body:where(.page-node-35, .page-node-36, .page-node-38, .page-node-43)
