@@ -55,10 +55,26 @@ body [data-aos]{opacity:1!important;transform:none!important}
 #Slider4rev3-6045d414b9ac9 .hero-trust__item{font-family:'Hanken Grotesk',sans-serif!important;font-size:var(--text-small);color:var(--muted)}
 #Slider4rev3-6045d414b9ac9 .hero-trust__item i{color:var(--accent)}
 /* Editorial opening and full-colour service photographs. */
-#Indgangsvinkel7-6901e45917156{padding:90px 0!important;background:var(--paper)!important}
+#Indgangsvinkel7-6901e45917156 {
+  padding-block: clamp(44px, 5vw, 72px) !important;
+  background: var(--paper) !important;
+}
+
+#Indgangsvinkel7-6901e45917156 .container,
+#Indgangsvinkel8rev2-640748622181e .container {
+  max-width: 1400px;
+  padding-inline: var(--gutter);
+}
 #Indgangsvinkel7-6901e45917156 .box__content{padding:0!important;background:none!important}
-#Indgangsvinkel7-6901e45917156 .box__content-inner{display:grid;grid-template-columns: .8fr 1.2fr;gap:64px;text-align:left!important}
-#Indgangsvinkel7-6901e45917156 h2{margin:0;max-width:17ch}
+#Indgangsvinkel7-6901e45917156 .box__content-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(14px, 2vw, 22px);
+  text-align: start !important;
+}
+
+#Indgangsvinkel7-6901e45917156 h2 { margin: 0; }
 #Indgangsvinkel7-6901e45917156 p{margin:0;color:var(--ink);max-width:68ch}
 #Indgangsvinkel8rev2-640748622181e{padding:0 0 96px!important;background:var(--paper)!important}
 #Indgangsvinkel8rev2-640748622181e .entry__grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:28px!important}
@@ -150,9 +166,6 @@ body #sliding-popup .agree-button{background:var(--ink)!important;color:#fff!imp
  #Slider4rev3-6045d414b9ac9 .hero-title{font-size:clamp(2rem,8.8vw,3.5rem)!important;max-width:100%;margin-bottom:20px!important}
  #Slider4rev3-6045d414b9ac9 .hero-lead{font-size:1.1875rem!important;max-width:44ch;margin-bottom:24px!important}
  #Slider4rev3-6045d414b9ac9 .hero-actions{margin-bottom:24px!important}
- #Indgangsvinkel7-6901e45917156{padding:56px 0!important}
- #Indgangsvinkel7-6901e45917156 .box__content-inner{grid-template-columns:1fr;gap:24px}
- #Indgangsvinkel7-6901e45917156 h2{max-width:100%}
  #Indgangsvinkel8rev2-640748622181e .entry__grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:28px 18px!important}
  #Indgangsvinkel8rev2-640748622181e .box__visual{height:190px}
  #Indgangsvinkel8rev2-640748622181e .title{font-size:1.25rem!important;overflow-wrap:anywhere}
