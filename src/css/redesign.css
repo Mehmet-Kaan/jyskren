@@ -529,12 +529,51 @@ html:has(.mobile-nav[open]) { overflow: hidden; }
 
 html:has(.has-brand-phone) { scroll-padding-top: 94px; }
 
-/* Keep service and company articles on the same readable axis. */
+/* Share a reading width and gutters across the banner, article and gallery. */
+:root { --article-width: 48rem; }
+
 :where(.page-node-32, .page-node-33, .page-node-35, .page-node-36,
        .page-node-37, .page-node-38, .page-node-39, .page-node-41,
-       .page-node-42, .page-node-43, .page-node-54) main .content-content {
-  max-inline-size: 68ch;
+       .page-node-42, .page-node-43, .page-node-54) :is(main .content-container, .Topslider1-carousel-content, .container.view--blazy) {
+  width: 100%;
+  max-width: calc(var(--article-width) + 2 * var(--gutter)) !important;
+  padding-inline: var(--gutter) !important;
   margin-inline: auto;
+}
+
+:where(.page-node-32, .page-node-33, .page-node-35, .page-node-36,
+       .page-node-37, .page-node-38, .page-node-39, .page-node-41,
+       .page-node-42, .page-node-43, .page-node-54) .Topslider1-carousel-content > .row {
+  margin-inline: 0;
+}
+
+:where(.page-node-32, .page-node-33, .page-node-35, .page-node-36,
+       .page-node-37, .page-node-38, .page-node-39, .page-node-41,
+       .page-node-42, .page-node-43, .page-node-54) .Topslider1-carousel-content > .row > .col-12 {
+  padding-inline: 0;
+}
+
+:where(.page-node-32, .page-node-33, .page-node-35, .page-node-36,
+       .page-node-37, .page-node-38, .page-node-39, .page-node-41,
+       .page-node-42, .page-node-43, .page-node-54) .container.view--blazy {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: clamp(12px, 2vw, 24px);
+}
+
+:where(.page-node-32, .page-node-33, .page-node-35, .page-node-36,
+       .page-node-37, .page-node-38, .page-node-39, .page-node-41,
+       .page-node-42, .page-node-43, .page-node-54) .view--blazy > .views-row {
+  max-width: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+:where(.page-node-32, .page-node-33, .page-node-35, .page-node-36,
+       .page-node-37, .page-node-38, .page-node-39, .page-node-41,
+       .page-node-42, .page-node-43, .page-node-54) .view--blazy .views-row img {
+  display: block;
+  width: 100%;
 }
 
 :where(.page-node-32, .page-node-33, .page-node-35, .page-node-36,
