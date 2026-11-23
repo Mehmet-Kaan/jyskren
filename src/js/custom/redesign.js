@@ -176,14 +176,15 @@ function setupMobileNavigation() {
 document.addEventListener('DOMContentLoaded', setupMobileNavigation);
 
 document.addEventListener('DOMContentLoaded', () => {
-  const header = document.querySelector('.Menu2rev2');
-  const logo = header?.querySelector('.primary__logo');
-  const source = header?.querySelector('.nav-phone-item a[href^="tel:"]');
-  if (!logo || !source) return;
+  const source = document.querySelector('.nav-phone-item a[href^="tel:"]');
+  if (!source) return;
 
-  const phone = source.cloneNode(true);
-  phone.className = 'primary__brand-phone';
-  logo.before(phone);
-  logo.parentElement.classList.add('primary__brand');
-  header.classList.add('has-brand-phone');
+  document.querySelectorAll('.Slider4rev3 .hero-actions').forEach(actions => {
+    const phone = source.cloneNode(true);
+    phone.className = 'hero-phone';
+    actions.after(phone);
+  });
+
+  document.querySelector('#ew-cta-2 .cta-flex a[href^="tel:"]')
+    ?.setAttribute('aria-label', `Ring til JYSKREN på ${source.textContent.trim()}`);
 });

@@ -512,54 +512,69 @@ html:has(.mobile-nav[open]) { overflow: hidden; }
   to { opacity: 0; }
 }
 
+#Menu2rev2-624563e43ec58 .header .primary.js-sticky--stuck {
+  height: 90px !important;
+  min-height: 90px !important;
+}
+
+.Slider4rev3 .hero-phone {
+  display: none;
+}
+
 @media (max-width: 1199.98px) {
-  #Menu2rev2-624563e43ec58.has-brand-phone .nav-phone-item {
+  #Slider4rev3-6045d414b9ac9 .hero-actions {
+    margin-bottom: 8px !important;
+  }
+
+  .Slider4rev3 a.hero-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    margin-bottom: 16px;
+    font-size: var(--text-ui);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  body #ew-cta-2 .cta-menu-toggle,
+  body #ew-cta-2 .cta-flex a:not([href^="tel:"]),
+  body #ew-cta-2 .cta-flex .cta-2-primary-value {
     display: none !important;
+  }
+
+  body #ew-cta-2 .cta-flex {
+    display: block;
+    inset: auto max(12px, env(safe-area-inset-right)) max(18px, env(safe-area-inset-bottom)) auto !important;
+    opacity: 1;
+    transform: none;
+    z-index: 100;
+  }
+
+  body #ew-cta-2 .cta-flex .cta-2-primary[href^="tel:"] {
+    display: grid;
+    place-items: center;
+    width: 50px;
+    height: 50px;
+    min-height: 50px;
+    padding: 0;
+    border-radius: 50% !important;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  body #ew-cta-2 .cta-flex .cta-2-primary-icon {
+    text-align: center;
+    font-size: 20px;
   }
 }
 
-@media (min-width: 1200px) {
-  #Menu2rev2-624563e43ec58 a.primary__brand-phone {
-    display: none !important;
+@media (max-width: 767.98px) {
+  #Menu2rev2-624563e43ec58 .header .primary.js-sticky--stuck {
+    height: 76px !important;
+    min-height: 76px !important;
   }
 }
-
-#Menu2rev2-624563e43ec58 .primary__brand {
-  position: relative;
-  align-self: stretch;
-  display: flex;
-  align-items: center;
-}
-
-#Menu2rev2-624563e43ec58 a.primary__brand-phone {
-  position: absolute;
-  inset-block-start: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  min-height: 24px;
-  padding-inline: 6px;
-  color: var(--ink) !important;
-  font-size: .875rem;
-  font-weight: 500;
-  line-height: 1.25;
-  text-decoration: none;
-}
-
-#Menu2rev2-624563e43ec58 .primary__brand-phone:hover span {
-  text-decoration: underline;
-}
-
-#Menu2rev2-624563e43ec58.has-brand-phone .header .primary,
-#Menu2rev2-624563e43ec58.has-brand-phone .header .primary.js-sticky--stuck {
-  height: 92px !important;
-  min-height: 92px !important;
-}
-
-html:has(.has-brand-phone) { scroll-padding-top: 96px; }
 
 /* Share a reading width and gutters across the banner, article and gallery. */
 :root { --article-width: 48rem; }
