@@ -504,16 +504,22 @@ html:has(.mobile-nav[open]) { overflow: hidden; }
 }
 
 #Menu2rev2-624563e43ec58 .primary__brand {
+  position: relative;
+  align-self: stretch;
   display: flex;
-  flex-direction: column;
   align-items: center;
 }
 
 #Menu2rev2-624563e43ec58 a.primary__brand-phone {
+  position: absolute;
+  inset-block-start: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  min-height: 32px;
+  min-height: 24px;
   padding-inline: 6px;
   color: var(--ink) !important;
   font-size: .875rem;
@@ -528,11 +534,11 @@ html:has(.mobile-nav[open]) { overflow: hidden; }
 
 #Menu2rev2-624563e43ec58.has-brand-phone .header .primary,
 #Menu2rev2-624563e43ec58.has-brand-phone .header .primary.js-sticky--stuck {
-  height: 90px !important;
-  min-height: 90px !important;
+  height: 92px !important;
+  min-height: 92px !important;
 }
 
-html:has(.has-brand-phone) { scroll-padding-top: 94px; }
+html:has(.has-brand-phone) { scroll-padding-top: 96px; }
 
 /* Share a reading width and gutters across the banner, article and gallery. */
 :root { --article-width: 48rem; }
