@@ -517,26 +517,7 @@ html:has(.mobile-nav[open]) { overflow: hidden; }
   min-height: 90px !important;
 }
 
-.Slider4rev3 .hero-phone {
-  display: none;
-}
-
 @media (max-width: 1199.98px) {
-  #Slider4rev3-6045d414b9ac9 .hero-actions {
-    margin-bottom: 8px !important;
-  }
-
-  .Slider4rev3 a.hero-phone {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    min-height: 44px;
-    margin-bottom: 16px;
-    font-size: var(--text-ui);
-    font-weight: 600;
-    text-decoration: underline;
-  }
-
   body #ew-cta-2 .cta-menu-toggle,
   body #ew-cta-2 .cta-flex a:not([href^="tel:"]),
   body #ew-cta-2 .cta-flex .cta-2-primary-value {

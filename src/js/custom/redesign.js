@@ -179,12 +179,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const source = document.querySelector('.nav-phone-item a[href^="tel:"]');
   if (!source) return;
 
-  document.querySelectorAll('.Slider4rev3 .hero-actions').forEach(actions => {
-    const phone = source.cloneNode(true);
-    phone.className = 'hero-phone';
-    actions.after(phone);
-  });
-
   document.querySelector('#ew-cta-2 .cta-flex a[href^="tel:"]')
     ?.setAttribute('aria-label', `Ring til JYSKREN på ${source.textContent.trim()}`);
 });
