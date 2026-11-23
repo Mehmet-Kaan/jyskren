@@ -63,11 +63,6 @@ html {
   transition: max-height 180ms ease-out, opacity 150ms ease-out;
 }
 
-#Menu2rev2-624563e43ec58 .header.js-sticky--stuck .primary .primary__logo img,
-#Menu2rev2-624563e43ec58 .header .primary.js-sticky--stuck .primary__logo img {
-  max-height: 38px !important;
-}
-
 @media (min-width: 1200px) {
   #Menu2rev2-624563e43ec58 .menu__list--1 {
     display: flex;
@@ -102,10 +97,6 @@ html {
     align-items: center;
     gap: 0.3rem;
     transition: color 150ms ease-out, background-color 150ms ease-out, transform 150ms ease-out;
-  }
-
-  #Menu2rev2-624563e43ec58 .header .primary.js-sticky--stuck .menu__item--1 > .menu__link {
-    padding: 0.5rem 0.72rem !important;
   }
 
   #Menu2rev2-624563e43ec58 .menu .menu__item--1.menu__item--active > .menu__link {
