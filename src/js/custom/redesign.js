@@ -219,6 +219,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const subject = encodeURIComponent('Henvendelse fra hjemmeside');
     const body = encodeURIComponent(lines.join('\n').replace(/\r?\n/g, '\r\n'));
-    window.location.href = `mailto:info@jyskren.dk?subject=${subject}&body=${body}`;
+    const draft = `mailto:info@jyskren.dk?subject=${subject}&body=${body}`;
+    const confirmation = document.getElementById('contact-form-confirmation');
+    confirmation.querySelector('[data-contact-email-draft]').href = draft;
+    form.hidden = true;
+    confirmation.hidden = false;
+    confirmation.focus({ preventScroll: true });
+    window.location.href = draft;
   });
 });

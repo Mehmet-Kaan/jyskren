@@ -1,7 +1,6 @@
 /**
  * JYSKREN - Google Ads & Analytics Conversion Tracking Helper
  * - Google Consent Mode v2 synchronization with cookie compliance banner
- * - Form submission handling & conversion event dispatch (`generate_lead`)
  * - Click-to-call (`click_to_call`) tracking
  * - Click-to-email (`click_to_email`) tracking
  */
@@ -91,55 +90,7 @@
     }
   });
 
-  // 4. Form Submission & Enhanced Conversions Support
-  document.addEventListener('submit', function(e) {
-    var form = e.target;
-    if (!form || form.tagName !== 'FORM') return;
-
-    // Read form values for conversion data
-    var nameInput = form.querySelector('input[name="name"]');
-    var phoneInput = form.querySelector('input[name="telefon"]');
-    var emailInput = form.querySelector('input[name="email"]');
-    var postnrInput = form.querySelector('input[name="postnr[postal_code]"]');
-    var byInput = form.querySelector('input[name="by[city]"]');
-    var messageInput = form.querySelector('textarea[name="message"]');
-
-    var leadData = {
-      event: 'generate_lead',
-      form_id: form.id || 'contact_form',
-      form_destination: form.action || window.location.pathname,
-      lead_type: 'Quote Request',
-      postal_code: postnrInput ? postnrInput.value.trim() : '',
-      city: byInput ? byInput.value.trim() : ''
-    };
-
-    // Google Enhanced Conversions user_data object
-    if (emailInput && emailInput.value) {
-      leadData.user_data = {
-        email: emailInput.value.trim().toLowerCase(),
-        phone_number: phoneInput ? phoneInput.value.trim() : '',
-        address: {
-          postal_code: postnrInput ? postnrInput.value.trim() : '',
-          city: byInput ? byInput.value.trim() : '',
-          country: 'DK'
-        }
-      };
-    }
-
-    // Push standard GA4 / Google Ads conversion event
-    window.dataLayer.push(leadData);
-    gtag('event', 'generate_lead', leadData);
-
-    // If on a static setup or non-ajax environment, redirect to /tak/ after dispatching event
-    if (form.getAttribute('action') === '/' || form.getAttribute('action') === '/kontakt' || form.getAttribute('action').includes(window.location.pathname)) {
-      e.preventDefault();
-      setTimeout(function() {
-        window.location.href = '/tak/';
-      }, 250);
-    }
-  });
-
-  // 5. If landing on /tak/, dispatch conversion confirmation event
+  // 4. If landing on /tak/, dispatch conversion confirmation event
   if (window.location.pathname === '/tak/' || window.location.pathname === '/tak') {
     window.dataLayer.push({
       event: 'conversion_thank_you_page',
