@@ -196,3 +196,29 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   footer.append(settings);
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('webform-submission-standard-node-6-add-form');
+  if (!form) return;
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const fields = new FormData(form);
+    const value = (name) => fields.get(name).trim();
+    const lines = [
+      `Navn: ${value('name')}`,
+      `Telefon: ${value('telefon')}`,
+      `E-mail: ${value('email')}`,
+      `Postnr.: ${value('postnr[postal_code]')}`,
+      `By: ${value('by[city]')}`,
+    ];
+    const cvr = value('cvr_nr');
+    if (cvr) lines.push(`CVR. nr.: ${cvr}`);
+    lines.push('', 'Besked:', value('message'));
+
+    const subject = encodeURIComponent('Henvendelse fra hjemmeside');
+    const body = encodeURIComponent(lines.join('\n').replace(/\r?\n/g, '\r\n'));
+    window.location.href = `mailto:info@jyskren.dk?subject=${subject}&body=${body}`;
+  });
+});
