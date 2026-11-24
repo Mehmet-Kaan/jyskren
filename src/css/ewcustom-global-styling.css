@@ -115,14 +115,14 @@ body.page-node-53 table tbody tr td:last-child {
   min-width: 100px;
   font-weight: 400;
 }
-body.page-node-53 .white_text {
+body.page-node-53 main .white_text {
   color: #fff;
   background-color: rgba(30, 33, 66, 0.8);
   padding-left: 8px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
-body.page-node-53 .table_boby p {
+body.page-node-53 main .table_boby p {
   background-color: rgba(30, 33, 66, 0.8);
   padding-top: 10px;
   padding-bottom: 10px;
